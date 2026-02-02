@@ -29,3 +29,4 @@ project\i2c.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h
 project\i2c.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
 project\i2c.o: E:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 project\i2c.o: E:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+project\i2c.o: E:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

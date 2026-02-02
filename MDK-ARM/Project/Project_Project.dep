@@ -2,7 +2,7 @@ Dependencies for Project 'Project', Target 'Project': (DO NOT MODIFY !)
 CompilerVersion: 5050106::V5.05 update 1 (build 106)::ARMCC
 F (startup_stm32f103xb.s)(0x695F8798)(--cpu Cortex-M3 -g --apcs=interwork -I.\RTE\_Project-IE:\Software\Keil_v5\ARM\Pack\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IE:\Software\Keil_v5\ARM\Pack\Keil\STM32F1xx_DFP\2.4.1\Device\Include--pd "__UVISION_VERSION SETA 540" --pd "STM32F10X_MD SETA 1" --pd "_RTE_ SETA 1"--list startup_stm32f103xb.lst --xref -o project\startup_stm32f103xb.o --depend project\startup_stm32f103xb.d)
 F (../Core/Src/main.c)(0x69808F55)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Module\Inc --locale=english-I.\RTE\_Project-IE:\Software\Keil_v5\ARM\Pack\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IE:\Software\Keil_v5\ARM\Pack\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="540" -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o project\main.o --omf_browse project\main.crf --depend project\main.d)
-I (../Core/Inc/main.h)(0x697F51BB)
+I (../Core/Inc/main.h)(0x6980964F)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x687B2E47)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x695F8796)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x687B2E47)
@@ -30,13 +30,14 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h)(0x687B2E47)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x687B2E47)
 I (E:\Software\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (E:\Software\Keil_v5\ARM\ARMCC\include\string.h)(0x5475F300)
+I (E:\Software\Keil_v5\ARM\ARMCC\include\math.h)(0x5475F2FE)
 I (../Core/Inc/i2c.h)(0x695F8796)
 I (../Core/Inc/gpio.h)(0x695F8796)
-I (..\Module\Inc\OLED.h)(0x69808E2B)
+I (..\Module\Inc\OLED.h)(0x698096D7)
 I (..\Module\Inc\fonts.h)(0x69808E12)
 F (../Core/Src/gpio.c)(0x695F8796)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Module\Inc --locale=english-I.\RTE\_Project-IE:\Software\Keil_v5\ARM\Pack\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IE:\Software\Keil_v5\ARM\Pack\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="540" -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o project\gpio.o --omf_browse project\gpio.crf --depend project\gpio.d)
 I (../Core/Inc/gpio.h)(0x695F8796)
-I (../Core/Inc/main.h)(0x697F51BB)
+I (../Core/Inc/main.h)(0x6980964F)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x687B2E47)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x695F8796)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x687B2E47)
@@ -64,9 +65,10 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h)(0x687B2E47)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x687B2E47)
 I (E:\Software\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (E:\Software\Keil_v5\ARM\ARMCC\include\string.h)(0x5475F300)
+I (E:\Software\Keil_v5\ARM\ARMCC\include\math.h)(0x5475F2FE)
 F (../Core/Src/i2c.c)(0x695F8796)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Module\Inc --locale=english-I.\RTE\_Project-IE:\Software\Keil_v5\ARM\Pack\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IE:\Software\Keil_v5\ARM\Pack\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="540" -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o project\i2c.o --omf_browse project\i2c.crf --depend project\i2c.d)
 I (../Core/Inc/i2c.h)(0x695F8796)
-I (../Core/Inc/main.h)(0x697F51BB)
+I (../Core/Inc/main.h)(0x6980964F)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x687B2E47)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x695F8796)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x687B2E47)
@@ -94,8 +96,9 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h)(0x687B2E47)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x687B2E47)
 I (E:\Software\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (E:\Software\Keil_v5\ARM\ARMCC\include\string.h)(0x5475F300)
+I (E:\Software\Keil_v5\ARM\ARMCC\include\math.h)(0x5475F2FE)
 F (../Core/Src/stm32f1xx_it.c)(0x695F8796)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Module\Inc --locale=english-I.\RTE\_Project-IE:\Software\Keil_v5\ARM\Pack\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IE:\Software\Keil_v5\ARM\Pack\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="540" -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o project\stm32f1xx_it.o --omf_browse project\stm32f1xx_it.crf --depend project\stm32f1xx_it.d)
-I (../Core/Inc/main.h)(0x697F51BB)
+I (../Core/Inc/main.h)(0x6980964F)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x687B2E47)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x695F8796)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x687B2E47)
@@ -123,9 +126,10 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h)(0x687B2E47)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x687B2E47)
 I (E:\Software\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (E:\Software\Keil_v5\ARM\ARMCC\include\string.h)(0x5475F300)
+I (E:\Software\Keil_v5\ARM\ARMCC\include\math.h)(0x5475F2FE)
 I (../Core/Inc/stm32f1xx_it.h)(0x695F8796)
 F (../Core/Src/stm32f1xx_hal_msp.c)(0x695F8796)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Module\Inc --locale=english-I.\RTE\_Project-IE:\Software\Keil_v5\ARM\Pack\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IE:\Software\Keil_v5\ARM\Pack\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="540" -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o project\stm32f1xx_hal_msp.o --omf_browse project\stm32f1xx_hal_msp.crf --depend project\stm32f1xx_hal_msp.d)
-I (../Core/Inc/main.h)(0x697F51BB)
+I (../Core/Inc/main.h)(0x6980964F)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x687B2E47)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x695F8796)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x687B2E47)
@@ -153,6 +157,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h)(0x687B2E47)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x687B2E47)
 I (E:\Software\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (E:\Software\Keil_v5\ARM\ARMCC\include\string.h)(0x5475F300)
+I (E:\Software\Keil_v5\ARM\ARMCC\include\math.h)(0x5475F2FE)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c)(0x687B2E47)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Module\Inc --locale=english-I.\RTE\_Project-IE:\Software\Keil_v5\ARM\Pack\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IE:\Software\Keil_v5\ARM\Pack\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="540" -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o project\stm32f1xx_hal_gpio_ex.o --omf_browse project\stm32f1xx_hal_gpio_ex.crf --depend project\stm32f1xx_hal_gpio_ex.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x687B2E47)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x695F8796)
@@ -543,9 +548,9 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h)(0x687B2E47)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h)(0x687B2E47)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h)(0x687B2E47)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x687B2E47)
-F (..\Module\Src\OLED.c)(0x69808EE0)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Module\Inc --locale=english-I.\RTE\_Project-IE:\Software\Keil_v5\ARM\Pack\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IE:\Software\Keil_v5\ARM\Pack\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="540" -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o project\oled.o --omf_browse project\oled.crf --depend project\oled.d)
-I (..\Module\Inc\OLED.h)(0x69808E2B)
-I (../Core/Inc/main.h)(0x697F51BB)
+F (..\Module\Src\OLED.c)(0x698096D7)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Module\Inc --locale=english-I.\RTE\_Project-IE:\Software\Keil_v5\ARM\Pack\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IE:\Software\Keil_v5\ARM\Pack\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="540" -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o project\oled.o --omf_browse project\oled.crf --depend project\oled.d)
+I (..\Module\Inc\OLED.h)(0x698096D7)
+I (../Core/Inc/main.h)(0x6980964F)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x687B2E47)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x695F8796)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x687B2E47)
@@ -573,11 +578,12 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h)(0x687B2E47)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x687B2E47)
 I (E:\Software\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (E:\Software\Keil_v5\ARM\ARMCC\include\string.h)(0x5475F300)
+I (E:\Software\Keil_v5\ARM\ARMCC\include\math.h)(0x5475F2FE)
 I (../Core/Inc/i2c.h)(0x695F8796)
 I (..\Module\Inc\Fonts.h)(0x69808E12)
 F (..\Module\Src\Fonts.c)(0x69808E12)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Module\Inc --locale=english-I.\RTE\_Project-IE:\Software\Keil_v5\ARM\Pack\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IE:\Software\Keil_v5\ARM\Pack\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="540" -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o project\fonts.o --omf_browse project\fonts.crf --depend project\fonts.d)
 I (..\Module\Inc\Fonts.h)(0x69808E12)
-I (../Core/Inc/main.h)(0x697F51BB)
+I (../Core/Inc/main.h)(0x6980964F)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x687B2E47)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x695F8796)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x687B2E47)
@@ -605,3 +611,4 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h)(0x687B2E47)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x687B2E47)
 I (E:\Software\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (E:\Software\Keil_v5\ARM\ARMCC\include\string.h)(0x5475F300)
+I (E:\Software\Keil_v5\ARM\ARMCC\include\math.h)(0x5475F2FE)

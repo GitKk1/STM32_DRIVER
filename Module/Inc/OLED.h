@@ -24,5 +24,13 @@ void OLED_ShowChar(int16_t X, int16_t Y, char Char);
 void OLED_ShowSpecifiedChar(int16_t X, int16_t Y, char Char, uint8_t FontSize);
 void OLED_ShowString(int16_t X, int16_t Y, char *String);
 void OLED_ShowSpecifiedString(int16_t X, int16_t Y, char *String, uint8_t FontSize);
+void OLED_ShowNum(int16_t X, int16_t Y, uint32_t Number, uint8_t Length);
+void OLED_ShowSpecifiedNum(int16_t X, int16_t Y, uint32_t Number, uint8_t Length, uint8_t FontSize);
+void OLED_ShowSignedNum(int16_t X, int16_t Y, int32_t Number, uint8_t Length);
+void OLED_ShowSpecifiedSignedNum(int16_t X, int16_t Y, int32_t Number, uint8_t Length, uint8_t FontSize);
+void OLED_ShowHexNum(int16_t X, int16_t Y, uint32_t Number, uint8_t Length);
+void OLED_ShowSpecifiedHexNum(int16_t X, int16_t Y, uint32_t Number, uint8_t Length, uint8_t FontSize);
+void OLED_ShowFloatNum(int16_t X, int16_t Y, double Number, uint8_t IntLength, uint8_t FraLength);
+void OLED_ShowSignifiedFloatNum(int16_t X, int16_t Y, double Number, uint8_t IntLength, uint8_t FraLength, uint8_t FontSize);
 
 #endif

@@ -28,6 +28,7 @@ project\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h
 project\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
 project\main.o: E:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 project\main.o: E:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+project\main.o: E:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 project\main.o: ../Core/Inc/i2c.h
 project\main.o: ../Core/Inc/gpio.h
 project\main.o: ..\Module\Inc\OLED.h

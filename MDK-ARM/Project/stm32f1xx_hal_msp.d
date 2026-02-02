@@ -28,3 +28,4 @@ project\stm32f1xx_hal_msp.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i
 project\stm32f1xx_hal_msp.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
 project\stm32f1xx_hal_msp.o: E:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 project\stm32f1xx_hal_msp.o: E:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+project\stm32f1xx_hal_msp.o: E:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

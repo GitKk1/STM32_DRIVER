@@ -29,3 +29,4 @@ project\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h
 project\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
 project\gpio.o: E:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 project\gpio.o: E:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+project\gpio.o: E:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

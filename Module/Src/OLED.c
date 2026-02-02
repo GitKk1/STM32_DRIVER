@@ -3,6 +3,28 @@
 #include "Fonts.h"
 uint8_t OLED_DisplayBuf[8][128];
 
+
+/*工具函数*********************/
+
+/*工具函数仅供内部部分函数使用*/
+
+/**
+  * 函    数：次方函数
+  * 参    数：X 底数
+  * 参    数：Y 指数
+  * 返 回 值：等于X的Y次方
+  */
+uint32_t OLED_Pow(uint32_t X, uint32_t Y)
+{
+	uint32_t Result = 1;	//结果默认为1
+	while (Y --)			//累乘Y次
+	{
+		Result *= X;		//每次把X累乘到结果上
+	}
+	return Result;
+}
+/***********************************************************************/
+
 /**
  * 函    数：OLED写命令
  * 参    数：Command 要写入的命令值，范围：0x00~0xFF
@@ -415,7 +437,7 @@ void OLED_ShowSpecifiedString(int16_t X, int16_t Y, char *String, uint8_t FontSi
   *           未找到指定中文字符时，会显示默认图形（一个方框，内部一个问号）
   *           当字体大小为OLED_8X16时，中文字符以16*16点阵正常显示
   *           当字体大小为OLED_6X8时，中文字符以6*8点阵显示'?'
-  * 说    无
+  * 说    明：无
   */
 void OLED_ShowString(int16_t X, int16_t Y, char *String)
 {
@@ -515,7 +537,237 @@ void OLED_ShowString(int16_t X, int16_t Y, char *String)
 			/*将字模库OLED_CF16x16的指定数据以16*16的图像格式显示*/
 			OLED_ShowImage(X + XOffset, Y, 16, 16, OLED_CF16x16[pIndex].Data);
 			XOffset += 16;
-
 		}
 	}
 }
+
+/**
+  * 函    数：OLED显示数字（十进制，正整数）
+  * 参    数：X 指定数字左上角的横坐标，范围：-32768~32767，屏幕区域：1~128
+  * 参    数：Y 指定数字左上角的纵坐标，范围：-32768~32767，屏幕区域：1~64
+  * 参    数：Number 指定要显示的数字，范围：0~4294967295
+  * 参    数：Length 指定数字的长度，范围：0~10
+  * 返 回 值：无
+  * 说    明：无
+  */
+void OLED_ShowSpecifiedNum(int16_t X, int16_t Y, uint32_t Number, uint8_t Length, uint8_t FontSize)
+{
+	uint8_t i;
+	for (i = 0; i < Length; i++)		//遍历数字的每一位							
+	{
+		/*调用OLED_ShowSpecifiedChar函数，依次显示每个数字*/
+		/*Number / OLED_Pow(10, Length - i - 1) % 10 可以十进制提取数字的每一位*/
+		/*+ '0' 可将数字转换为字符格式*/
+		OLED_ShowSpecifiedChar(X + i * FontSize, Y, Number / OLED_Pow(10, Length - i - 1) % 10 + '0', FontSize);
+	}
+}
+
+/**
+  * 函    数：OLED显示默认大小的数字（十进制，正整数）
+  * 参    数：X 指定数字左上角的横坐标，范围：-32768~32767，屏幕区域：1~128
+  * 参    数：Y 指定数字左上角的纵坐标，范围：-32768~32767，屏幕区域：1~64
+  * 参    数：Number 指定要显示的数字，范围：0~4294967295
+  * 参    数：Length 指定数字的长度，范围：0~10
+  * 返 回 值：无
+  * 说    明：无
+  */
+void OLED_ShowNum(int16_t X, int16_t Y, uint32_t Number, uint8_t Length)
+{
+	OLED_ShowSpecifiedNum(X, Y, Number,Length, OLED_8X16);
+}
+
+/**
+  * 函    数：OLED显示有符号数字（十进制，整数）
+  * 参    数：X 指定数字左上角的横坐标，范围：-32768~32767，屏幕区域：0~127
+  * 参    数：Y 指定数字左上角的纵坐标，范围：-32768~32767，屏幕区域：0~63
+  * 参    数：Number 指定要显示的数字，范围：-2147483648~2147483647
+  * 参    数：Length 指定数字的长度，范围：0~10
+  * 参    数：FontSize 指定字体大小
+  *           范围：OLED_8X16		宽8像素，高16像素
+  *                 OLED_6X8		宽6像素，高8像素
+  * 返 回 值：无
+  * 说    明：无
+  */
+void OLED_ShowSpecifiedSignedNum(int16_t X, int16_t Y, int32_t Number, uint8_t Length, uint8_t FontSize)
+{
+	uint8_t i;
+	uint32_t Number1;
+	
+	if (Number >= 0)						//数字大于等于0
+	{
+		OLED_ShowSpecifiedChar(X, Y, '+', FontSize);	//显示+号
+		Number1 = Number;					//Number1直接等于Number
+	}
+	else									//数字小于0
+	{
+		OLED_ShowSpecifiedChar(X, Y, '-', FontSize);	//显示-号
+		Number1 = -Number;					//Number1等于Number取负
+	}
+	
+	for (i = 0; i < Length; i++)			//遍历数字的每一位								
+	{
+		/*调用OLED_ShowSpecifiedChar函数，依次显示每个数字*/
+		/*Number1 / OLED_Pow(10, Length - i - 1) % 10 可以十进制提取数字的每一位*/
+		/*+ '0' 可将数字转换为字符格式*/
+		OLED_ShowSpecifiedChar(X + (i + 1) * FontSize, Y, Number1 / OLED_Pow(10, Length - i - 1) % 10 + '0', FontSize);
+	}
+}
+
+/**
+  * 函    数：OLED显示默认大小的有符号数字（十进制，整数）
+  * 参    数：X 指定数字左上角的横坐标，范围：-32768~32767，屏幕区域：0~127
+  * 参    数：Y 指定数字左上角的纵坐标，范围：-32768~32767，屏幕区域：0~63
+  * 参    数：Number 指定要显示的数字，范围：-2147483648~2147483647
+  * 参    数：Length 指定数字的长度，范围：0~10
+  * 说    明：无
+  */
+void OLED_ShowSignedNum(int16_t X, int16_t Y, int32_t Number, uint8_t Length)
+{
+	OLED_ShowSpecifiedSignedNum(X, Y, Number, Length, OLED_8X16);
+}
+
+/**
+  * 函    数：OLED显示十六进制数字（十六进制，正整数）
+  * 参    数：X 指定数字左上角的横坐标，范围：-32768~32767，屏幕区域：1~128
+  * 参    数：Y 指定数字左上角的纵坐标，范围：-32768~32767，屏幕区域：1~64
+  * 参    数：Number 指定要显示的数字，范围：0x00000000~0xFFFFFFFF
+  * 参    数：Length 指定数字的长度，范围：0~8
+  * 参    数：FontSize 指定字体大小
+  *           范围：OLED_8X16		宽8像素，高16像素
+  *                 OLED_6X8		宽6像素，高8像素
+  * 返 回 值：无
+  * 说    明：无
+  */
+void OLED_ShowSpecifiedHexNum(int16_t X, int16_t Y, uint32_t Number, uint8_t Length, uint8_t FontSize)
+{
+	uint8_t i, SingleNumber;
+	for (i = 0; i < Length; i++)		//遍历数字的每一位
+	{
+		/*以十六进制提取数字的每一位*/
+		SingleNumber = Number / OLED_Pow(16, Length - i - 1) % 16;
+		
+		if (SingleNumber < 10)			//单个数字小于10
+		{
+			/*调用OLED_ShowSpecifiedChar函数，显示此数字*/
+			/*+ '0' 可将数字转换为字符格式*/
+			OLED_ShowSpecifiedChar(X + i * FontSize, Y, SingleNumber + '0', FontSize);
+		}
+		else							//单个数字大于10
+		{
+			/*调用OLED_ShowSpecifiedChar函数，显示此数字*/
+			/*+ 'A' 可将数字转换为从A开始的十六进制字符*/
+			OLED_ShowSpecifiedChar(X + i * FontSize, Y, SingleNumber - 10 + 'A', FontSize);
+		}
+	}
+}
+
+/**
+  * 函    数：OLED显示默认大小的十六进制数字（十六进制，正整数）
+  * 参    数：X 指定数字左上角的横坐标，范围：-32768~32767，屏幕区域：1~128
+  * 参    数：Y 指定数字左上角的纵坐标，范围：-32768~32767，屏幕区域：1~64
+  * 参    数：Number 指定要显示的数字，范围：0x00000000~0xFFFFFFFF
+  * 参    数：Length 指定数字的长度，范围：0~8
+  * 返 回 值：无
+  * 说    明：无
+  */
+void OLED_ShowHexNum(int16_t X, int16_t Y, uint32_t Number, uint8_t Length)
+{
+	OLED_ShowSpecifiedHexNum(X, Y, Number, Length, OLED_8X16);
+}
+/**
+  * 函    数：OLED显示二进制数字（二进制，正整数）
+  * 参    数：X 指定数字左上角的横坐标，范围：-32768~32767，屏幕区域：0~127
+  * 参    数：Y 指定数字左上角的纵坐标，范围：-32768~32767，屏幕区域：0~63
+  * 参    数：Number 指定要显示的数字，范围：0x00000000~0xFFFFFFFF
+  * 参    数：Length 指定数字的长度，范围：0~16
+  * 参    数：FontSize 指定字体大小
+  *           范围：OLED_8X16		宽8像素，高16像素
+  *                 OLED_6X8		宽6像素，高8像素
+  * 返 回 值：无
+  * 说    明：无
+  */
+void OLED_ShowSingedBinNum(int16_t X, int16_t Y, uint32_t Number, uint8_t Length, uint8_t FontSize)
+{
+	uint8_t i;
+	for (i = 0; i < Length; i++)		//遍历数字的每一位	
+	{
+		/*调用OLED_ShowSpecifiedChar函数，依次显示每个数字*/
+		/*Number / OLED_Pow(2, Length - i - 1) % 2 可以二进制提取数字的每一位*/
+		/*+ '0' 可将数字转换为字符格式*/
+		OLED_ShowSpecifiedChar(X + i * FontSize, Y, Number / OLED_Pow(2, Length - i - 1) % 2 + '0', FontSize);
+	}
+}
+
+/**
+  * 函    数：OLED显示默认大小的二进制数字（二进制，正整数）
+  * 参    数：X 指定数字左上角的横坐标，范围：-32768~32767，屏幕区域：0~127
+  * 参    数：Y 指定数字左上角的纵坐标，范围：-32768~32767，屏幕区域：0~63
+  * 参    数：Number 指定要显示的数字，范围：0x00000000~0xFFFFFFFF
+  * 参    数：Length 指定数字的长度，范围：0~16
+  * 返 回 值：无
+  * 说    明：无
+  */
+void OLED_ShowBinNum(int16_t X, int16_t Y, uint32_t Number, uint8_t Length)
+{
+	OLED_ShowSingedBinNum(X, Y, Number, Length, OLED_8X16);
+}
+
+/**
+  * 函    数：OLED显示浮点数字（十进制，小数）
+  * 参    数：X 指定数字左上角的横坐标，范围：-32768~32767，屏幕区域：0~127
+  * 参    数：Y 指定数字左上角的纵坐标，范围：-32768~32767，屏幕区域：0~63
+  * 参    数：Number 指定要显示的数字，范围：-4294967295.0~4294967295.0
+  * 参    数：IntLength 指定数字的整数位长度，范围：0~10
+  * 参    数：FraLength 指定数字的小数位长度，范围：0~9，小数进行四舍五入显示
+  * 参    数：FontSize 指定字体大小
+  *           范围：OLED_8X16		宽8像素，高16像素
+  *                 OLED_6X8		宽6像素，高8像素
+  * 返 回 值：无
+  * 说    明：无
+  */
+void OLED_ShowSignifiedFloatNum(int16_t X, int16_t Y, double Number, uint8_t IntLength, uint8_t FraLength, uint8_t FontSize)
+{
+	uint32_t PowNum, IntNum, FraNum;
+	
+	if (Number >= 0)						//数字大于等于0
+	{
+		OLED_ShowSpecifiedChar(X, Y, '+', FontSize);	//显示+号
+	}
+	else									//数字小于0
+	{
+		OLED_ShowSpecifiedChar(X, Y, '-', FontSize);	//显示-号
+		Number = -Number;					//Number取负
+	}
+	
+	/*提取整数部分和小数部分*/
+	IntNum = Number;						//直接赋值给整型变量，提取整数
+	Number -= IntNum;						//将Number的整数减掉，防止之后将小数乘到整数时因数过大造成错误
+	PowNum = OLED_Pow(10, FraLength);		//根据指定小数的位数，确定乘数
+	FraNum = round(Number * PowNum);		//将小数乘到整数，同时四舍五入，避免显示误差
+	IntNum += FraNum / PowNum;				//若四舍五入造成了进位，则需要再加给整数
+	
+	/*显示整数部分*/
+	OLED_ShowSpecifiedNum(X + FontSize, Y, IntNum, IntLength, FontSize);
+	
+	/*显示小数点*/
+	OLED_ShowSpecifiedChar(X + (IntLength + 1) * FontSize, Y, '.', FontSize);
+	
+	/*显示小数部分*/
+	OLED_ShowSpecifiedNum(X + (IntLength + 2) * FontSize, Y, FraNum, FraLength, FontSize);
+}
+
+/**
+  * 函    数：OLED显示浮点数字（十进制，小数）
+  * 参    数：X 指定数字左上角的横坐标，范围：-32768~32767，屏幕区域：0~127
+  * 参    数：Y 指定数字左上角的纵坐标，范围：-32768~32767，屏幕区域：0~63
+  * 参    数：Number 指定要显示的数字，范围：-4294967295.0~4294967295.0
+  * 参    数：IntLength 指定数字的整数位长度，范围：0~10
+  * 参    数：FraLength 指定数字的小数位长度，范围：0~9，小数进行四舍五入显示
+  * 返 回 值：无
+  * 说    明：无
+  */
+void OLED_ShowFloatNum(int16_t X, int16_t Y, double Number, uint8_t IntLength, uint8_t FraLength)
+{
+	OLED_ShowSignifiedFloatNum( X, Y, Number, IntLength, FraLength, OLED_8X16);
+}
+

@@ -29,5 +29,6 @@ project\oled.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h
 project\oled.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
 project\oled.o: E:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 project\oled.o: E:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+project\oled.o: E:\Software\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 project\oled.o: ../Core/Inc/i2c.h
 project\oled.o: ..\Module\Inc\Fonts.h
