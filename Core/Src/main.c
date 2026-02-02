@@ -94,8 +94,9 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  OLED_ShowImage(1, 1, 128, 64, test_num);
-  OLED_ClearArea(1, 1, 16, 16);
+//  OLED_ShowImage(1, 1, 128, 64, test_num);
+//  OLED_ClearArea(1, 1, 16, 16);
+	OLED_ShowString(1, 1, "HelloWorld!");
   //OLED_ShowImage(1, 17, 16, 16, Diode);
   OLED_SetCursor(6, 0);
   OLED_WriteSingleData(0xff);
